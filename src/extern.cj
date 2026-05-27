@@ -13,11 +13,13 @@ public class ExternDynamicException <: Exception {
 }
 
 public interface Runtime<T> where T <: Runtime<T> {
+    // return a reference to the member
     static func memberAccess(e: Extern<T>, field: String): Extern<T>
+    // return a reference to the indexed value
     static func indexAccess(e: Extern<T>, arg: Any): Extern<T>
 
-    static func memberUpdate(e: Extern<T>, field: String, value: Any) : Unit
-    static func indexUpdate(e: Extern<T>, field: Any, value: Any): Unit
+    // assigns the value to the extern
+    static func assign(e: Extern<T>, value: Any) : Unit
 
     static func functionCall(e: Extern<T>, args: Array<Any>): Extern<T>
 
