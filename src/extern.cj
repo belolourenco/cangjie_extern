@@ -18,6 +18,9 @@ public interface Runtime<T> where T <: Runtime<T> {
     // return a reference to the indexed value
     static func indexAccess(e: Extern<T>, arg: Any): Extern<T>
 
+    // dereferences the extern
+    static func dereference(e: Extern<T>): Extern<T>
+
     // assigns the value to the extern
     static func assign(e: Extern<T>, value: Any) : Unit
 
